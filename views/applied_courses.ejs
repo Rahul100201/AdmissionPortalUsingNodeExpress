@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Admission Portal</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/Header-Nightsky.css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+   </head>
+   <body>
+      <div class="header-nightsky">
+         <nav class="navbar navbar-default">
+             <div class="container-fluid">
+                 <div class="container">
+                 </div>
+                 <a class="navbar-brand" href="">
+                     <img src="/assets/img/logo.png" width="100px" style="margin-top: -40px;" alt="LOGO" />
+                 </a>
+                 <div class="navbar-header">
+                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                     </button>
+                 </div>
+                 <div class="collapse navbar-collapse" id="myNavbar" style="margin-left: 6px;">
+                     <ul class="nav navbar-nav navbar-right">
+                         <li><a href="/dashboard">HOME</a></li>
+                         <li><a href="/about">ABOUT</a></li>
+                         <li><a href="/contact">CONTACT</a></li>
+                         <li><a href="/appliedcourses">APPLIED COURSES</a></li>
+                            <li><a href="/logout">LOG OUT</a></li>
+                     </ul>
+                 </div>
+             </div>
+         </nav>
+     </div>
+     <div class="container">
+        <h1 class="text-center"
+        style="color: black; font-family: 'Raleway',sans-serif; font-size: 43px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase;">
+       Display Information</h1>
+    <hr>
+        <table class="table table-hover table-dark">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Status</th>
+                <th scope="col">Comments</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% d.forEach((item)=>{ %>
+              <tr>
+                <th scope="row">1</th>
+                <td><%= item.name %></td>
+                <td><%= item.email %></td>
+                <td><%= item.status %></td>
+                <td><%= item.comment %></td>
+                <td><a href="/appliedcourses/view/<%= item._id %>" class="btn btn-info">View</a>
+                    <a class="btn btn-danger" data-toggle="modal"
+                      data-target="#exampleModal">Edit</a></td>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Registration</h5>
+
+                                <button type="button" class="close" data-dismiss="modal"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="/update_course/<%= item._id %>" method="post">
+                                    <div class="form-group">
+                                        <label>Name</label>
+                                        <input type="text" name="name" value="<%= item.name %>"
+                                            class="form-control" placeholder="Name">
+                                    </div>
+                                    <br>
+                                    <label>Email</label>
+                                    <div class="form-group">
+                                        <input type="text" name="email" class="form-control"
+                                            placeholder="Email" value="<%= item.email %>">
+                                    </div>
+                                    <br>
+                                    <label>Mobile</label>
+                                    <div class="form-group">
+                                        <input type="text" name="mobile" class="form-control"
+                                            placeholder="Enter Phone Name" value="<%= item.mobile %>">
+                                    </div>
+                                    <br>
+                                    <label>Address</label>
+                                    <div class="form-group">
+                                        <textarea name="address" placeholder="Enter Your Address"
+                                            class="form-control" cols="30" rows="10"><%= item.address %></textarea>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label>Gender:</label><br>
+                                        <input type="radio" name="gender" value="male" <%= item.gender=='male'?'checked':'' %>> Male<br>
+                                        <input type="radio" name="gender" value="male" <%= item.gender=='female'?'checked':'' %>> Female
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label>College</label>
+                                        <br>
+                                        <select name="college" class="form-control" value="<%= item.college %>">
+                                            <option value="0">Select college</option>
+                                            <option <%= item.college =='RGIT'?'selected':'' %>>RGIT</option>
+                                            <option  <%= item.college =='SCEM'?'selected':'' %>>SHRIRAM COLLEGE OF ENGINEERING AND MANAGEMENT
+                                            </option>
+                                            <option <%= item.college =='MPCT'?'selected':'' %>>MPCT</option>
+                                            <option <%= item.college =='MITS'?'selected':'' %>>MITS</option>
+                                            <option <%= item.college =='ITM'?'selected':'' %>>ITM</option>
+                                            <option  <%= item.college =='OTHERS'?'selected':'' %>>OTHERS</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Branch</label>
+                                        <br>
+                                        <select  name="branch" class="form-control">
+                                            <option>Select</option>
+                                            <option <%= item.branch =='C.S.E'?'selected':'' %>>C.S.E</option>
+                                            <option <%= item.branch =='I.T'?'selected':'' %>>I.T</option>
+                                            <option <%= item.branch =='>E.E'?'selected':'' %>>E.E</option>
+                                            <option <%= item.branch =='E.C'?'selected':'' %>>E.C</option>
+                                            <option <%= item.branch =='MECH'?'selected':'' %>>MECH.</option>
+                                            <option <%= item.branch =='CIVIL'?'selected':'' %>>CIVIL</option>
+                                            <option <%= item.branch =='AUTOMOBILE'?'selected':'' %>>AUTOMOBILE</option>
+                                            <option <%= item.branch =='OTHERS'?'selected':'' %>>OTHERS</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Course</label>
+                                        <select  name="course" class="form-control">
+                                            <option>Select</option>
+                                            <option <%= item.course =='B.tech'?'selected':'' %>>B.tech</option>
+                                        </select>
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+     </div>
+     
+    
+      <br />
+          <!-- Footer -->
+    <footer class="text-center text-white" style="background-color: #f2f2f2;">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+          
+    
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: #f2f2f2;">
+          © 2022 Copyright:
+          <a class="text-white" href="#">Rahul Soni</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!-- Footer -->
+    </section>
+   </body>
+</html>

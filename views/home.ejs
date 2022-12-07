@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Portal</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password"
+            }
+        }
+    </script>
+
+</head>
+
+
+<body>
+    <section class="vh-100">
+        <div class="container py-5 h-100">
+            <div class="row d-flex align-items-center justify-content-center h-100">
+                <div class="col-md-8 col-lg-7 col-xl-6">
+                    <img style="    box-shadow: 0 10px 16px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%) !important;"
+                        src="assets/img/img_avatar3.png" class="img-fluid" alt="Phone image">
+                </div>
+                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+                    <h3 class="mb-5 text-center">Admission Portal</h3>
+                    <% if(message.length> 0){ %>
+                        <div class="alert alert-danger">
+                            <%= message %>
+                        </div>
+                        <% } %>
+                            <form action="/verify_login" method="post">
+                                <div class="mb-4">
+                                    Email
+                                    <input type="email" name="email" placeholder="Enter Your Email Address"
+                                        class="form-control form-control-lg" />
+                                </div>
+                                <div class=" mb-4">
+                                    Password
+                                    <input type="password" name="password" placeholder="Enter Your Password"
+                                        class="form-control form-control-lg" />
+                                </div>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                                <hr>
+                            </form>
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal"
+                                data-target="#exampleModal">
+                                Register
+                            </button>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Register</h5>
+
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="/register" method="post">
+                                                <div class="form-group">
+                                                    <input type="text" name="name" class="form-control"
+                                                        placeholder="Name">
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <input type="text" name="email" class="form-control"
+                                                        placeholder="Email">
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <input type="password" id="myInput" name="password"
+                                                        class="form-control" placeholder="Password">
+                                                    <input type="checkbox" onclick="myFunction()">Show Password
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <input type="password" id="myInput" name="confirmpassword"
+                                                        class="form-control" placeholder="ConfirmPassword">
+                                                    <input type="checkbox" onclick="myFunction()">Show Password
+                                                </div>
+                                                <br>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Register</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr class="my-4">
+                            <a href="/auth/google" class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"
+                                type="submit"><i class="fab fa-google me-2"></i> Sign in with google</a>
+                            <button class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;"
+                                type="submit"><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</button>
+    </section>
+</body>
+
+</html>

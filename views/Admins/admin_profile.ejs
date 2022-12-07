@@ -1,0 +1,147 @@
+<%- include('./leftsidebar.ejs') %>
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        <header id="header" class="header">
+
+            <div class="header-menu">
+
+                <div class="col-sm-7">
+                    <!-- <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a> -->
+
+
+                </div>
+
+                <div class="col-sm-5">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="/assets/img/img_avatar3.png" alt="User Avatar">
+                        </a>
+                        <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="/admin/profile"><i class="fa fa-user"></i> My Profile</a>
+                            <a class="nav-link" href="/logout"><i class="fa fa-power-off"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header><!-- /header -->
+        <!-- Header-->
+        <div class="content mt-3">
+            <div class="container">
+                <h1 class="text-center"
+                    style="color: rgb(117, 116, 116); font-family: 'Raleway',sans-serif; font-size: 43px; font-weight: 600; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase;">
+                    Admin Profile</h1>
+                <hr>
+                <div class="breadcrumbs">
+                    <div class="col-sm-4">
+                        <div class="page-header float-left">
+                            <div class="page-title">
+                                <h1>Dashboard</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="page-header float-right">
+                            <div class="page-title">
+                                <ol class="breadcrumb text-right">
+                                    <li>Dashboard</li>
+                                    <li class="active">Profile</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content mt-3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>Details</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="default-tab">
+                                        <nav>
+                                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                <a class="nav-item nav-link active show" id="nav-home-tab"
+                                                    data-toggle="tab" href="#nav-home" role="tab"
+                                                    aria-controls="nav-home" aria-selected="false">Profile</a>
+                                            </div>
+                                        </nav>
+                                        <div class="tab-content pl-3 pt-2" id="nav-tabContent">
+                                            <div class="tab-pane fade active show" id="nav-home" role="tabpanel"
+                                                aria-labelledby="nav-home-tab">
+                                                <form action="" method="POST" class="form-horizontal">
+
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3"><label
+                                                                class=" form-control-label">Email</label></div>
+                                                        <div class="col-12 col-md-9">
+                                                            <input type="email" disabled class="form-control"
+                                                                name="email" value="<%= e %>">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3"><label for="name"
+                                                                class=" form-control-label">Name</label></div>
+                                                        <div class="col-12 col-md-9"><input type="text" id="name"
+                                                                name="name" placeholder="Text" class="form-control"
+                                                                value="<%= n %>"></div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3"><label for="old_password"
+                                                                class=" form-control-label">Old Password</label></div>
+                                                        <div class="col-12 col-md-9"><input type="password"
+                                                                id="old_password" name="old_password"
+                                                                placeholder="Password" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3"><label for="password"
+                                                                class=" form-control-label">New Password</label></div>
+                                                        <div class="col-12 col-md-9"><input type="password"
+                                                                id="password" name="password" placeholder="Password"
+                                                                class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row form-group">
+                                                        <div class="col col-md-3"><label for="password_confirmation"
+                                                                class=" form-control-label">Confirm Password</label>
+                                                        </div>
+                                                        <div class="col-12 col-md-9"><input type="password"
+                                                                id="password_confirmation" name="password_confirmation"
+                                                                placeholder="Password" class="form-control"></div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary btn-sm">
+                                                        <i class="fa fa-dot-circle-o"></i> Submit
+                                                    </button>
+                                                </form>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div> <!-- .content -->
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+
+
+
+
+    <%- include('./adminfooter.ejs') %>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admission Portal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/Header-Nightsky.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   
+
+</head>
+
+<body>
+
+    <div class="header-nightsky">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="container">
+                </div>
+                <a class="navbar-brand" href="">
+                    <img src="/assets/img/logo.png" width="100px" style="margin-top: -40px;" alt="LOGO" />
+                </a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar" style="margin-left: 6px;">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/dashboard">HOME</a></li>
+                        <li><a href="/about">ABOUT</a></li>
+                        <li><a href="/contact">CONTACT</a></li>
+                        <li><a href="/appliedcourses">APPLIED COURSES</a></li>
+                        <li><a data-target="#exampleModalCenter" data-toggle="modal" href="/profile">PROFILE</a></li>
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-center" id="exampleModalLongTitle">Profile Update
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="/profile/<%= id %>" method="post" > 
+                                            <div class="form-group row">
+                                                <label class="col-sm-2 col-form-label">Name</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="name" readonly class="form-control"
+                                                        value="<%= n %>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="email" readonly class="form-control"
+                                                        id="staticEmail" value="<%= e %>">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputPassword" class="col-sm-2 col-form-label">Old
+                                                    Password</label>
+                                                <div class="col-sm-10">
+                                                    <input type="password" name="old_password" class="form-control"
+                                                        id="inputPassword" placeholder="Ols_Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputPassword" class="col-sm-2 col-form-label">New
+                                                    Password</label>
+                                                <div class="col-sm-10">
+                                                    <input type="password" name="new_password" class="form-control"
+                                                        id="inputPassword" placeholder="New_Password">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="inputPassword" class="col-sm-2 col-form-label">Re-enter
+                                                    Password</label>
+                                                <div class="col-sm-10">
+                                                    <input type="password" name="re_enterpassword" class="form-control"
+                                                        id="inputPassword" placeholder="Re_enter Password">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <li><a href="/logout">LOG OUT</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>

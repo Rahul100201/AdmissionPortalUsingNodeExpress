@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Admission Portal</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="assets/css/Header-Nightsky.css">
+      <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+   </head>
+   <body>
+      <div class="header-nightsky">
+         <nav class="navbar navbar-default">
+            <div class="container-fluid">
+               <div class="container">
+               </div>
+               <a class="navbar-brand" href="">
+               <img src="/assets/img/logo.png" width="100px" style="margin-top: -40px;" alt="LOGO" />
+               </a>
+               <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  </button>
+               </div>
+               <div class="collapse navbar-collapse" id="myNavbar" style="margin-left: 6px;">
+                  <ul class="nav navbar-nav navbar-right">
+                     <li><a href="/dashboard">HOME</a></li>
+                     <li><a href="/about">ABOUT</a></li>
+                     <li><a href="#">CONTACT</a></li>
+                     <li><a href="/appliedcourses">APPLIED COURSES</a></li>
+                     <li><a href="/logout">LOG OUT</a></li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+      </div>
+      <img style="margin-top: -20px;" width="100%" src="/assets/img/contact-us.jpg" alt="">
+      <br><br>
+      <div class="container">
+	
+        <div class="row">
+            <div class="col-md-6 contact">
+                <h4 class="h4" style="padding-bottom: 4%; font-family: 'montserrat'sans-serif;">SEND US MESSAGE</h4>
+    
+                <form action="/contact/insert" method="post">
+                    <div class="form-group">
+                    <input type="text" name="username" placeholder="UserName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                    <input type="text" name="email" placeholder="Email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                    <input type="number" name="mobile" placeholder="Phone" class="form-control">
+                    </div>
+                    <div class="form-group">
+                    <textarea type="text" name="message" placeholder="Message" class="form-control"></textarea>
+                    </div>
+    
+                    <button class="btn btn-success text-center" type="submit">Submit</button>
+                    </form>
+                </div>
+    
+                <div class="col-md-6 contactus2">
+                    <h4 class="h4" style="padding-bottom: 4%; font-family: 'montserrat'sans-serif;">CONTACT INFO</h4>
+                    <strong style="color:#000000; font-size: 20px;" >Address</strong>
+                    <p class="p"> Nh-75, opp. Sithouli Railway Station, Sithouli, Gwalior, Madhya Pradesh 475001</p>
+                    
+                    <strong style="color:#000000; font-size: 20px;">Mobile No</strong>
+                    <p class="p">Mobile:
+                    <a href="" style="text-decoration: none; color:#0a0b0f;">
+                     <b>+91 7084530151</b>
+                        </a>
+                        </p>
+    
+                        <strong style="color:#000000; font-size: 20px;">For Any Enquiry</strong>
+                    <p class="p">Email:
+                    <a href="" style="text-decoration: none; color:#1F45FC;">
+                     <b>admission@itmgoi.in</b>
+                        </a>
+                        </p>
+    
+                        <strong style="color:#000000; font-size: 20px;">Open Timing</strong>
+                    
+                
+                         
+                    
+                           <br>
+                           Open: Monday – Saturday 
+                         <br>Time: 9:00AM – 6:00PM
+                
+                        </p>
+                </div>
+        </div><!--row end-->
+    </div><!--container-fluid end-->
+    <br><br>
+
+ 
+
+          <!-- Footer -->
+    <footer class="text-center text-white" style="background-color: #f2f2f2;">
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+          
+    
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: #f2f2f2;">
+          © 2022 Copyright:
+          <a class="text-white" href="#">Rahul Soni</a>
+        </div>
+        <!-- Copyright -->
+      </footer>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <!-- Footer -->
+    </section>
+   </body>
+</html>

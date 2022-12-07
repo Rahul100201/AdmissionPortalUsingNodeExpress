@@ -1,0 +1,83 @@
+<!-- left Panel -->
+<%- include('./leftsidebar.ejs') %>
+    <!-- left Panel -->
+
+
+
+    <!-- Right Panel -->
+
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header-->
+        <header id="header" class="header">
+
+            <div class="header-menu">
+
+                <div class="col-sm-7">
+                    <!-- <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a> -->
+
+
+                </div>
+
+                <div class="col-sm-5">
+                    <div class="user-area dropdown float-right">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <img class="user-avatar rounded-circle" src="/assets/img/img_avatar3.png" alt="User Avatar">
+                        </a>
+                        <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="/admin/profile"><i class="fa fa-user"></i> My Profile</a>
+                            <a class="nav-link" href="/logout"><i class="fa fa-power-off"></i> Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </header><!-- /header -->
+        <!-- Header-->
+        <div class="content mt-3">
+            <div class="container">
+                <h1 class="text-center"
+                style="color: black; font-family: 'Raleway',sans-serif; font-size: 43px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase;">
+              USER DETAILS</h1>
+            <hr>
+                <table class="table table-hover table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <% d.forEach((item)=>{ %>
+                            <tr>
+                                <td><%= item._id %></td>
+                                <td><%=  item.name %></td>
+                                <td><%= item.email %></td>
+                                <td>
+                                    <a href="/admin/view_details/<%= item._id %>" class="btn btn-info">view</a>
+                                   
+                                    <a href="/admin/userdelete/<%= item._id %>" class="btn btn-danger">delete</a>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                
+                  </table>
+             </div>
+             
+
+
+
+        </div> <!-- .content -->
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+
+
+
+
+
+    <%- include('./adminfooter.ejs') %>

@@ -1,0 +1,82 @@
+<%- include('./leftsidebar.ejs') %>
+
+ <!-- Right Panel -->
+
+ <div id="right-panel" class="right-panel">
+
+    <!-- Header-->
+    <header id="header" class="header">
+
+        <div class="header-menu">
+
+            <div class="col-sm-7">
+                <!-- <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a> -->
+
+
+            </div>
+
+            <div class="col-sm-5">
+                <div class="user-area dropdown float-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <img class="user-avatar rounded-circle" src="/assets/img/img_avatar3.png" alt="User Avatar">
+                    </a>
+                    <div class="user-menu dropdown-menu">
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+                        <a class="nav-link" href="/logout"><i class="fa fa-power-off"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header><!-- /header -->
+    <!-- Header-->
+    <div class="content mt-3">
+        <div class="container">
+            <a href="/admin/dashboard" class="btn btn-info">Back To Dashboard</a>
+            <h1 class="text-center"
+            style="color: black; font-family: 'Raleway',sans-serif; font-size: 43px; font-weight: 600; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase;">
+           User Information</h1>
+        <hr>
+            <table class="table table-hover table-dark">
+                <thead>
+                  <tr>
+                    <th scope="col">S.No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mobile</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">College</th>
+                    <th scope="col">Branch</th>
+                    <th scope="col">Course</th>
+               
+
+                  </tr>
+                </thead>
+                <tbody>
+                   
+                  <tr>
+                    <th scope="row">1</th>
+                    <td><%= d.name %></td>
+                    <td><%= d.email %></td>
+                    <td><%= d.mobile %></td>
+                    <td><%= d.address %></td>
+                    <td><%= d.gender %></td>
+                    <td><%= d.college %></td>
+                    <td><%= d.branch %></td>
+                    <td><%= d.course %></td>
+                    
+                  </tr>
+    
+                </tbody>
+              </table>
+         </div>
+        
+
+
+
+    </div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+<!-- Right Panel -->

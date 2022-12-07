@@ -1,0 +1,471 @@
+<%- include('../header.ejs')%>
+    <section>
+
+        <img width="100%" style="margin-top: -20px;" src="/assets/img/banner.jpg" alt="">
+        <h1 class="text-center"
+            style="color: black; font-family: 'Raleway',sans-serif; font-size: 43px; font-weight: 800; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase;">
+            Admission Portal</h1>
+        <hr>
+        <h1 class="text-center" style="color: #828282; font-family: 'Raleway',sans-serif; font-size: 43px; font-weight: 600; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase;">Welcome <%= n %></h1>
+        <div class="container-fluid">
+            <div class="container">
+                <hr>
+                <div class="row">
+                    <div class="col-md-3"
+                        style="box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-left: 40px!important;margin: 20px;width: 230px;height: 400px;border-radius: 20px;">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" style="margin: 10px;margin-top: 21px!important;" width="100%"
+                                src="/assets/img/btech.png" alt="Card image cap">
+                            <div class="card-body" style="margin-left: 11px;">
+                                <h5 class="card-title">B.TECH</h5>
+                                <p class="card-text">Bachelor of Technology (BTech) is a professional undergraduate
+                                    engineering degree programme awarded to candidates after they complete four years of
+                                    study in the field.
+                                </p>
+                                <% if(b) { %>
+                                    <a href="/appliedcourses" class="btn btn-danger btn-lg btn-block">Display</a>
+                                <% } else { %>
+                                    <button type="button"  class="btn btn-danger btn-lg btn-block" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                    Register
+                                </button>
+                                <%   } %>    
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Registration</h5>
+
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="/register_course" method="post">
+                                                    <input type="hidden" name="user_id" value="<%= id %>">
+                                                    <div class="form-group">
+                                                        <label>Name</label>
+                                                        <input type="text" name="name" value="<%= n %>"
+                                                            class="form-control" placeholder="Name">
+                                                    </div>
+                                                    <br>
+                                                    <label>Email</label>
+                                                    <div class="form-group">
+                                                        <input type="text" name="email" class="form-control"
+                                                            placeholder="Email" value="<%= e %>">
+                                                    </div>
+                                                    <br>
+                                                    <label>Mobile</label>
+                                                    <div class="form-group">
+                                                        <input type="text" name="mobile" class="form-control"
+                                                            placeholder="Enter Phone Name">
+                                                    </div>
+                                                    <br>
+                                                    <label>Address</label>
+                                                    <div class="form-group">
+                                                        <textarea name="address" placeholder="Enter Your Address"
+                                                            class="form-control" cols="30" rows="10"></textarea>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label>Gender:</label><br>
+                                                        <input type="radio" name="gender" value="male"> Male<br>
+                                                        <input type="radio" name="gender" value="female"> Female
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label>College</label>
+                                                        <br>
+                                                        <select name="college" class="form-control">
+                                                            <option value="0">Select college</option>
+                                                            <option value="RGIT">RGIT</option>
+                                                            <option value="SCEM">SHRIRAM COLLEGE OF ENGINEERING AND MANAGEMENT
+                                                            </option>
+                                                            <option value="MPCT">MPCT</option>
+                                                            <option value="MITS">MITS</option>
+                                                            <option value="ITM">ITM</option>
+                                                            <option value="OTHERS">OTHERS</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Branch</label>
+                                                        <br>
+                                                        <select name="branch" class="form-control">
+                                                            <option value="0">Select</option>
+                                                            <option value="C.S.E">C.S.E</option>
+                                                            <option value="I.T">I.T</option>
+                                                            <option value="E.E">E.E</option>
+                                                            <option value="E.C">E.C</option>
+                                                            <option value="MECH">MECH.</option>
+                                                            <option value="CIVIL">CIVIL</option>
+                                                            <option value="AUTOMOBILE">AUTOMOBILE</option>
+                                                            <option value="OTHERS">OTHERS</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Course</label>
+                                                        <select name="course" class="form-control">
+                                                            <option value="0">Select</option>
+                                                            <option value="B.tech">B.tech</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3"
+                        style="box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-left: 40px!important;margin: 20px;width: 230px;height: 400px;border-radius: 20px;">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" style="margin: 10px;margin-top: 21px!important;" width="100%"
+                                src="/assets/img/btech.png" alt="Card image cap">
+                            <div class="card-body" style="margin-left: 11px;">
+                                <h5 class="card-title">M.TECH</h5>
+                                <p class="card-text">SFull form of ME is Master of Engineering and that of MTech is
+                                    Master of Technology.MTech is a professional postgraduate engineering master degree
+                                    programme.</p>
+                                
+                                    <% if(m) { %>
+                                        <a href="/appliedcourses" class="btn btn-danger btn-lg btn-block">Display</a>
+                                    <% } else { %>
+                                        <button type="button"  class="btn btn-danger btn-lg btn-block" data-toggle="modal"
+                                        data-target="#exampleModal2">
+                                        Register
+                                    </button>
+                                    <%   } %> 
+                              
+                            
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Registration</h5>
+
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="/register_course" method="post">
+                                                    <input type="hidden" name="user" value="<%= id %>">
+                                                    <div class="form-group">
+                                                        <label>Name</label>
+                                                        <input type="text" name="name" value="<%= n %>"
+                                                            class="form-control" placeholder="Name">
+                                                    </div>
+                                                    <br>
+                                                    <label>Email</label>
+                                                    <div class="form-group">
+                                                        <input type="text" name="email" class="form-control"
+                                                            placeholder="Email" value="<%= e %>">
+                                                    </div>
+                                                    <br>
+                                                    <label>Mobile</label>
+                                                    <div class="form-group">
+                                                        <input type="text" name="mobile" class="form-control"
+                                                            placeholder="Enter Phone Name">
+                                                    </div>
+                                                    <br>
+                                                    <label>Address</label>
+                                                    <div class="form-group">
+                                                        <textarea name="address" placeholder="Enter Your Address"
+                                                            class="form-control" cols="30" rows="10"></textarea>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label>Gender:</label><br>
+                                                        <input type="radio" name="gender" value="male"> Male<br>
+                                                        <input type="radio" name="gender" value="female"> Female
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label>College</label>
+                                                        <br>
+                                                        <select name="college" class="form-control">
+                                                            <option value="0">Select college</option>
+                                                            <option value="RGIT">RGIT</option>
+                                                            <option value="SCEM">SHRIRAM COLLEGE OF ENGINEERING AND MANAGEMENT
+                                                            </option>
+                                                            <option value="MPCT">MPCT</option>
+                                                            <option value="MITS">MITS</option>
+                                                            <option value="ITM">ITM</option>
+                                                            <option value="OTHERS">OTHERS</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Branch</label>
+                                                        <br>
+                                                        <select name="branch" class="form-control">
+                                                            <option value="0">Select</option>
+                                                            <option value="C.S.E">C.S.E</option>
+                                                            <option value="I.T">I.T</option>
+                                                            <option value="E.E">E.E</option>
+                                                            <option value="E.C">E.C</option>
+                                                            <option value="MECH">MECH.</option>
+                                                            <option value="CIVIL">CIVIL</option>
+                                                            <option value="AUTOMOBILE">AUTOMOBILE</option>
+                                                            <option value="OTHERS">OTHERS</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Course</label>
+                                                        <select name="course" class="form-control">
+                                                            <option value="0">Select</option>
+                                                            <option value="M.tech">M.tech</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3"
+                        style="box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-left: 40px!important;margin: 20px;width: 230px;height: 400px;border-radius: 20px;">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" style="margin: 10px;margin-top: 21px!important;" width="100%"
+                                src="/assets/img/btech.png" alt="Card image cap">
+                            <div class="card-body" style="margin-left: 11px;">
+                                <h5 class="card-title">BCA</h5>
+                                <p class="card-text">he BCA course subjects cover programming languages such as C++ and
+                                    JAVA, networking, computer basics, multimedia systems, data structures web design.
+                                </p>
+                                <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal"
+                                    data-target="#exampleModal3">
+                                    Register
+                                </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Registration</h5>
+
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="/register_course" method="post">
+                                                    <input type="hidden" name="user" value="<%= id %>">
+                                                    <div class="form-group">
+                                                        <label>Name</label>
+                                                        <input type="text" name="name" value="<%= n %>"
+                                                            class="form-control" placeholder="Name">
+                                                    </div>
+                                                    <br>
+                                                    <label>Email</label>
+                                                    <div class="form-group">
+                                                        <input type="text" name="email" class="form-control"
+                                                            placeholder="Email" value="<%= e %>">
+                                                    </div>
+                                                    <br>
+                                                    <label>Mobile</label>
+                                                    <div class="form-group">
+                                                        <input type="text" name="mobile" class="form-control"
+                                                            placeholder="Enter Phone Name">
+                                                    </div>
+                                                    <br>
+                                                    <label>Address</label>
+                                                    <div class="form-group">
+                                                        <textarea name="address" placeholder="Enter Your Address"
+                                                            class="form-control" cols="30" rows="10"></textarea>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label>Gender:</label><br>
+                                                        <input type="radio" name="gender" value="male"> Male<br>
+                                                        <input type="radio" name="gender" value="female"> Female
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label>College</label>
+                                                        <br>
+                                                        <select name="college" class="form-control">
+                                                            <option value="0">Select college</option>
+                                                            <option value="RGIT">RGIT</option>
+                                                            <option value="SCEM">SHRIRAM COLLEGE OF ENGINEERING AND MANAGEMENT
+                                                            </option>
+                                                            <option value="MPCT">MPCT</option>
+                                                            <option value="MITS">MITS</option>
+                                                            <option value="ITM">ITM</option>
+                                                            <option value="OTHERS">OTHERS</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Branch</label>
+                                                        <br>
+                                                        <select name="branch" class="form-control">
+                                                            <option value="0">Select</option>
+                                                            <option value="C.S.E">C.S.E</option>
+                                                            <option value="I.T">I.T</option>
+                                                            <option value="E.E">E.E</option>
+                                                            <option value="E.C">E.C</option>
+                                                            <option value="MECH">MECH.</option>
+                                                            <option value="CIVIL">CIVIL</option>
+                                                            <option value="AUTOMOBILE">AUTOMOBILE</option>
+                                                            <option value="OTHERS">OTHERS</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Course</label>
+                                                        <select name="course" class="form-control">
+                                                            <option value="0">Select</option>
+                                                            <option value="BCA">BCA</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3"
+                        style="box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);margin-left: 35px!important;margin: 20px;width: 230px;height: 400px;border-radius: 20px;">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" style="margin: 10px;margin-top: 21px!important;" width="100%"
+                                src="/assets/img/btech.png" alt="Card image cap">
+                            <div class="card-body" style="margin-left: 11px;">
+                                <h5 class="card-title">MBA</h5>
+                                <p class="card-text">What Classes Are Included in an MBA. An MBA typically includes
+                                    courses in accounting, organizational behavior, economics, management and business
+                                    ethics.</p>
+                                <button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal"
+                                    data-target="#exampleModal4">
+                                    Register
+                                </button>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Registration </h5>
+
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="/register_course" method="post">
+                                                    <input type="hidden" name="user" value="<%= id %>">
+                                                    <div class="form-group">
+                                                        <label>Name</label>
+                                                        <input type="text" name="name" value="<%= n %>"
+                                                            class="form-control" placeholder="Name">
+                                                    </div>
+                                                    <br>
+                                                    <label>Email</label>
+                                                    <div class="form-group">
+                                                        <input type="text" name="email" class="form-control"
+                                                            placeholder="Email" value="<%= e %>">
+                                                    </div>
+                                                    <br>
+                                                    <label>Mobile</label>
+                                                    <div class="form-group">
+                                                        <input type="text" name="mobile" class="form-control"
+                                                            placeholder="Enter Phone Name">
+                                                    </div>
+                                                    <br>
+                                                    <label>Address</label>
+                                                    <div class="form-group">
+                                                        <textarea name="address" placeholder="Enter Your Address"
+                                                            class="form-control" cols="30" rows="10"></textarea>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label>Gender:</label><br>
+                                                        <input type="radio" name="gender" value="male"> Male<br>
+                                                        <input type="radio" name="gender" value="female"> Female
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label>College</label>
+                                                        <br>
+                                                        <select name="college" class="form-control">
+                                                            <option value="0">Select college</option>
+                                                            <option value="RGIT">RGIT</option>
+                                                            <option value="SCEM">SHRIRAM COLLEGE OF ENGINEERING AND MANAGEMENT
+                                                            </option>
+                                                            <option value="MPCT">MPCT</option>
+                                                            <option value="MITS">MITS</option>
+                                                            <option value="ITM">ITM</option>
+                                                            <option value="OTHERS">OTHERS</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Branch</label>
+                                                        <br>
+                                                        <select name="branch" class="form-control">
+                                                            <option value="0">Select</option>
+                                                            <option value="C.S.E">C.S.E</option>
+                                                            <option value="I.T">I.T</option>
+                                                            <option value="E.E">E.E</option>
+                                                            <option value="E.C">E.C</option>
+                                                            <option value="MECH">MECH.</option>
+                                                            <option value="CIVIL">CIVIL</option>
+                                                            <option value="AUTOMOBILE">AUTOMOBILE</option>
+                                                            <option value="OTHERS">OTHERS</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Course</label>
+                                                        <select name="course" class="form-control">
+                                                            <option value="0">Select</option>
+                                                            <option value="MBA">MBA</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                        
+                                                        
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include('../footer.ejs')%>

@@ -1,0 +1,75 @@
+<%- include('./leftsidebar.ejs') %>
+
+ <!-- Right Panel -->
+
+ <div id="right-panel" class="right-panel">
+
+    <!-- Header-->
+    <header id="header" class="header">
+
+        <div class="header-menu">
+
+            <div class="col-sm-7">
+                <!-- <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a> -->
+            </div>
+
+            <div class="col-sm-5">
+                <div class="user-area dropdown float-right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <img class="user-avatar rounded-circle" src="/assets/img/img_avatar3.png" alt="User Avatar">
+                    </a>
+                    <div class="user-menu dropdown-menu">
+                        <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
+                        <a class="nav-link" href="/logout"><i class="fa fa-power-off"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+            <tr>
+                <tfoot>
+                    <td></td>
+                </tfoot>
+            </tr>
+        </div>
+
+
+    </header><!-- /header -->
+    <!-- Header-->
+    <div class="content mt-3">
+        <div class="container">
+            <a href="/admin/dashboard" class="btn btn-info">Back To Dashboard</a>
+            <h1 class="text-center"
+            style="color: black; font-family: 'Raleway',sans-serif; font-size: 43px; font-weight: 600; line-height: 72px; margin: 0 0 24px; text-align: center; text-transform: uppercase;">
+          Update User Information</h1>
+        <hr>
+        <form action="/updateuserdetails/<%= d._id%>" method="post">
+            <div class="form-group">
+                <input type="text" name="name" class="form-control"
+                    placeholder="Name" value="<%= d.name%>">
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="text" name="email" class="form-control"
+                    placeholder="Email" value="<%= d.email%>">
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="password" id="myInput" name="password"
+                    class="form-control" placeholder="Password" value="<%= d.hashpassword%>">
+          
+            </div>
+            <br>
+            <br>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+         </div>
+        
+
+
+
+    </div> <!-- .content -->
+</div><!-- /#right-panel -->
+
+<!-- Right Panel -->
